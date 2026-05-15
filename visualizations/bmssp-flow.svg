@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="260" viewBox="0 0 920 260" role="img" aria-labelledby="title desc">
+  <title id="title">BMSSP bounded recursive flow</title>
+  <desc id="desc">Animated diagram showing BMSSP moving from source set to pivots, bounded queue, recursion, relaxation, and merge.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #f8fafc; stroke: #334155; stroke-width: 1.4; rx: 10; }
+    .active { fill: #e0f2fe; stroke: #0369a1; }
+    .text { font: 600 15px system-ui, -apple-system, Segoe UI, sans-serif; fill: #0f172a; }
+    .sub { font: 12px system-ui, -apple-system, Segoe UI, sans-serif; fill: #475569; }
+    .arrow { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .pulse { fill: #0ea5e9; opacity: 0.9; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b" />
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="920" height="260" />
+  <text class="text" x="34" y="34">BMSSP flow, simplified</text>
+  <text class="sub" x="34" y="56">A bounded region is split, delegated recursively, then merged back into the frontier.</text>
+
+  <g transform="translate(35 95)">
+    <rect class="box" x="0" y="0" width="130" height="70" />
+    <text class="text" x="24" y="30">Sources</text>
+    <text class="sub" x="24" y="51">complete set S</text>
+  </g>
+  <g transform="translate(190 95)">
+    <rect class="box" x="0" y="0" width="130" height="70" />
+    <text class="text" x="30" y="30">Pivots</text>
+    <text class="sub" x="19" y="51">represent frontier</text>
+  </g>
+  <g transform="translate(345 95)">
+    <rect class="box" x="0" y="0" width="130" height="70" />
+    <text class="text" x="32" y="30">Queue</text>
+    <text class="sub" x="20" y="51">bounded by B</text>
+  </g>
+  <g transform="translate(500 95)">
+    <rect class="box" x="0" y="0" width="130" height="70" />
+    <text class="text" x="23" y="30">Recurse</text>
+    <text class="sub" x="20" y="51">level l - 1</text>
+  </g>
+  <g transform="translate(655 95)">
+    <rect class="box" x="0" y="0" width="130" height="70" />
+    <text class="text" x="34" y="30">Relax</text>
+    <text class="sub" x="24" y="51">update d[v]</text>
+  </g>
+  <g transform="translate(810 95)">
+    <rect class="box" x="0" y="0" width="75" height="70" />
+    <text class="text" x="14" y="30">Merge</text>
+    <text class="sub" x="13" y="51">batch</text>
+  </g>
+
+  <path class="arrow" d="M165 130 H188" />
+  <path class="arrow" d="M320 130 H343" />
+  <path class="arrow" d="M475 130 H498" />
+  <path class="arrow" d="M630 130 H653" />
+  <path class="arrow" d="M785 130 H808" />
+  <path class="arrow" d="M848 166 C835 225 390 225 405 168" />
+
+  <circle class="pulse" r="7" cx="100" cy="130">
+    <animate attributeName="cx" values="100;255;410;565;720;850;410" dur="7s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="130;130;130;130;130;130;214" dur="7s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.2;1;1;1;1;1;0.2" dur="7s" repeatCount="indefinite" />
+  </circle>
+
+  <text class="sub" x="345" y="205">Batch prepend sends near-boundary candidates back to the bounded queue.</text>
+</svg>

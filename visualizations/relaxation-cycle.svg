@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-labelledby="title desc">
+  <title id="title">Relaxation and queue placement</title>
+  <desc id="desc">Animated diagram showing an improved distance being classified into queue ranges.</desc>
+  <style>
+    .label { font: 600 15px system-ui, -apple-system, Segoe UI, sans-serif; fill: #0f172a; }
+    .sub { font: 12px system-ui, -apple-system, Segoe UI, sans-serif; fill: #475569; }
+    .node { fill: #f8fafc; stroke: #334155; stroke-width: 1.5; }
+    .active { fill: #dcfce7; stroke: #15803d; }
+    .candidate { fill: #e0f2fe; stroke: #0284c7; }
+    .edge { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .bucket { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.2; rx: 8; }
+    .dot { fill: #0ea5e9; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b" />
+    </marker>
+  </defs>
+  <rect width="920" height="280" fill="#fff"/>
+  <text class="label" x="34" y="36">Relaxation and queue placement</text>
+  <text class="sub" x="34" y="58">After recursion completes vertices, outgoing edges may create new queue candidates.</text>
+
+  <circle class="node active" cx="120" cy="145" r="32"/>
+  <text class="label" x="112" y="150">u</text>
+  <text class="sub" x="92" y="190">d[u] = 4</text>
+  <circle class="node candidate" cx="300" cy="145" r="32"/>
+  <text class="label" x="292" y="150">v</text>
+  <text class="sub" x="270" y="190">old d[v] = 9</text>
+  <path class="edge" d="M153 145 H265"/>
+  <text class="sub" x="195" y="130">+2</text>
+
+  <text class="label" x="390" y="112">new distance = 6</text>
+  <text class="sub" x="390" y="138">6 improves 9, so v must be placed again.</text>
+
+  <rect class="bucket" x="585" y="82" width="125" height="60"/>
+  <text class="label" x="615" y="116">local</text>
+  <text class="sub" x="604" y="134">[B', B_i)</text>
+  <rect class="bucket" x="735" y="82" width="125" height="60"/>
+  <text class="label" x="764" y="116">future</text>
+  <text class="sub" x="756" y="134">[B_i, B)</text>
+
+  <circle class="dot" r="8" cx="300" cy="145">
+    <animate attributeName="cx" values="300;465;645;645" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="145;145;112;112" dur="4.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".2;1;1;.2" dur="4.5s" repeatCount="indefinite"/>
+  </circle>
+  <path class="edge" d="M520 130 C555 112 565 112 585 112"/>
+  <text class="sub" x="585" y="205">If the value lands in the nearer interval, BMSSP batch-prepends it.</text>
+</svg>

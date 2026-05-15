@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="300" viewBox="0 0 920 300" role="img" aria-labelledby="title desc">
+  <title id="title">Pivot selection</title>
+  <desc id="desc">Animated diagram showing frontier vertices being compressed into pivots.</desc>
+  <style>
+    .label { font: 600 15px system-ui, -apple-system, Segoe UI, sans-serif; fill: #0f172a; }
+    .sub { font: 12px system-ui, -apple-system, Segoe UI, sans-serif; fill: #475569; }
+    .edge { stroke: #cbd5e1; stroke-width: 2; }
+    .node { fill: #f8fafc; stroke: #334155; stroke-width: 1.4; }
+    .frontier { fill: #e0f2fe; stroke: #0284c7; }
+    .pivot { fill: #fef3c7; stroke: #b45309; stroke-width: 2; }
+    .halo { fill: none; stroke: #f59e0b; stroke-width: 3; opacity: .7; }
+  </style>
+  <rect width="920" height="300" fill="#fff"/>
+  <text class="label" x="34" y="36">Pivot selection</text>
+  <text class="sub" x="34" y="58">The frontier can be large; pivots summarize parts of it for the next recursive layer.</text>
+
+  <line class="edge" x1="95" y1="150" x2="255" y2="90"/>
+  <line class="edge" x1="95" y1="150" x2="255" y2="150"/>
+  <line class="edge" x1="95" y1="150" x2="255" y2="210"/>
+  <line class="edge" x1="255" y1="90" x2="430" y2="70"/>
+  <line class="edge" x1="255" y1="90" x2="430" y2="115"/>
+  <line class="edge" x1="255" y1="150" x2="430" y2="150"/>
+  <line class="edge" x1="255" y1="210" x2="430" y2="195"/>
+  <line class="edge" x1="255" y1="210" x2="430" y2="240"/>
+
+  <circle class="node" cx="95" cy="150" r="28"/>
+  <text class="label" x="87" y="155">S</text>
+  <circle class="frontier" cx="255" cy="90" r="24"/>
+  <circle class="frontier" cx="255" cy="150" r="24"/>
+  <circle class="frontier" cx="255" cy="210" r="24"/>
+  <circle class="node" cx="430" cy="70" r="22"/>
+  <circle class="node" cx="430" cy="115" r="22"/>
+  <circle class="node" cx="430" cy="150" r="22"/>
+  <circle class="node" cx="430" cy="195" r="22"/>
+  <circle class="node" cx="430" cy="240" r="22"/>
+
+  <circle class="halo" cx="255" cy="90" r="31">
+    <animate attributeName="r" values="25;37;25" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle class="halo" cx="255" cy="210" r="31">
+    <animate attributeName="r" values="25;37;25" dur="4s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle class="pivot" cx="650" cy="110" r="30"/>
+  <text class="label" x="641" y="115">p1</text>
+  <circle class="pivot" cx="650" cy="205" r="30"/>
+  <text class="label" x="641" y="210">p2</text>
+
+  <path d="M285 90 C410 80 520 80 620 110" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 6"/>
+  <path d="M285 210 C410 220 520 220 620 205" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="6 6"/>
+  <text class="sub" x="600" y="260">P = selected representatives, not every reached vertex.</text>
+</svg>

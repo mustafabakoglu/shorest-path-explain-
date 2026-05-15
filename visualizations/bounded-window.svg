@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-labelledby="title desc">
+  <title id="title">Bounded search window</title>
+  <desc id="desc">Animated graph showing which vertices are inside and outside a BMSSP distance boundary.</desc>
+  <style>
+    .label { font: 600 15px system-ui, -apple-system, Segoe UI, sans-serif; fill: #0f172a; }
+    .sub { font: 12px system-ui, -apple-system, Segoe UI, sans-serif; fill: #475569; }
+    .edge { stroke: #94a3b8; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    .node { fill: #f8fafc; stroke: #334155; stroke-width: 1.5; }
+    .inside { fill: #dcfce7; stroke: #15803d; }
+    .outside { fill: #fee2e2; stroke: #b91c1c; }
+    .ring { fill: none; stroke: #0ea5e9; stroke-width: 3; stroke-dasharray: 8 8; opacity: .75; }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" />
+    </marker>
+  </defs>
+  <rect width="920" height="280" fill="#fff"/>
+  <text class="label" x="34" y="36">Bounded search window</text>
+  <text class="sub" x="34" y="58">A BMSSP call only works below its current boundary B.</text>
+
+  <circle class="ring" cx="245" cy="145" r="86">
+    <animate attributeName="r" values="70;98;70" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".35;.9;.35" dur="5s" repeatCount="indefinite"/>
+  </circle>
+
+  <path class="edge" d="M100 145 H205"/>
+  <path class="edge" d="M255 145 H365"/>
+  <path class="edge" d="M415 145 H525"/>
+  <path class="edge" d="M575 145 H690"/>
+  <path class="edge" d="M255 145 C300 80 370 80 415 145"/>
+
+  <circle class="node inside" cx="90" cy="145" r="28"/>
+  <text class="label" x="82" y="150">S</text>
+  <circle class="node inside" cx="245" cy="145" r="28"/>
+  <text class="label" x="236" y="150">A</text>
+  <circle class="node inside" cx="405" cy="145" r="28"/>
+  <text class="label" x="396" y="150">B</text>
+  <circle class="node outside" cx="565" cy="145" r="28"/>
+  <text class="label" x="556" y="150">C</text>
+  <circle class="node outside" cx="730" cy="145" r="28"/>
+  <text class="label" x="721" y="150">D</text>
+
+  <text class="sub" x="130" y="130">2</text>
+  <text class="sub" x="295" y="130">1</text>
+  <text class="sub" x="455" y="130">3</text>
+  <text class="sub" x="620" y="130">4</text>
+  <text class="label" x="790" y="130">B = 6</text>
+  <text class="sub" x="790" y="153">inside: S, A, B</text>
+  <text class="sub" x="790" y="173">outside for now: C, D</text>
+</svg>
